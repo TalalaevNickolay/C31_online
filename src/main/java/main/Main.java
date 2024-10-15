@@ -18,7 +18,7 @@ public class Main {
                 .sorted(Comparator.comparingInt(String::length))
                 .filter(x -> x.length() > 3)
                 .map(s1 -> Integer.parseInt(s1))
-                .collect(Collectors.toList());
+                .toList();
         System.out.println(collect);
 
         Calendar calendar = new GregorianCalendar();

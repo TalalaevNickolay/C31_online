@@ -10,10 +10,10 @@ public class Task2 {
         String line = sc.nextLine();
         String[] array = line.split(" ");
 
-        Map<String, String> checkingVal = new HashMap<>();
+        Map<Character, Character> checkingVal = new HashMap<>();
 
         for (String s : array) {
-            checkingVal.put(s.substring(0, 1), s.substring(s.length() - 1));
+            checkingVal.put(s.charAt(0), s.charAt(s.length() - 1));
         }
 
         System.out.println(checkingVal);

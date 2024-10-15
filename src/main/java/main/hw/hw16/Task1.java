@@ -11,7 +11,6 @@ public class Task1 {
         String[] array = line.split(" ");
 
         Map<String, Boolean> checkingVal = new HashMap<>();
-
         for (String s : array) {
             checkingVal.put(s, checkingVal.containsKey(s));
         }
