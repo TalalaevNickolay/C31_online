@@ -7,6 +7,14 @@ public class User {
     private int age;
     private String nationality;
 
+    public User() {
+        this.id = (long) Math.random()*10;
+        this.firstName = "Gordon";
+        this.lastName = "Freeman";
+        this.age = 100;
+        this.nationality = "USA";
+    }
+
     public User(long id, String firstName, String lastName, int age, String nationality) {
         this.id = id;
         this.firstName = firstName;
