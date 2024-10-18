@@ -25,6 +25,7 @@ public final class Main extends Shape {
         doPeriodicCleanup();
 
         //------------------------Java 9------------------------
+        Arrays.asList("one", "two", "three");
         List<String> list = List.of("one", "two", "three");
         Set<String> set = Set.of("one", "two", "three");
         Map<String, String> map = Map.of("foo", "one", "bar", "two");
@@ -47,9 +48,9 @@ public final class Main extends Shape {
         }
 
         // стало
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/romeo_and_juliett.txt"));
-        BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/write.txt"));
-        try (reader; writer) {
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/romeo_and_juliett.txt"));
+             BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/write.txt"))) {
             while (null != (line = reader.readLine())) {
                 writer.write(line);
                 System.out.println(line);
@@ -69,13 +70,13 @@ public final class Main extends Shape {
         System.out.println("\n");
         System.out.println("Blank string - " + " ".isBlank());
         System.out.println("Lines of string - " + "Mar\nco\nPolo".lines().toList());
-        System.out.println("Strip string - " + "     Marco".strip());
+        System.out.println("Strip string - " + "     Marco     ".strip());
 
         Path path = Files.writeString(Files.createTempFile("helloworld", ".txt"), "Hi, my name is!");
         String s = Files.readString(path);
         System.out.println("Reading from file - " + s);
 
-        list.stream().map(String::toLowerCase).collect(Collectors.toList());
+        list.stream().map(String::toLowerCase).toList();
         list.stream().map((var str) -> str.toLowerCase()).collect(Collectors.toUnmodifiableList());
 
         //--------------------Java 12------------------------
@@ -110,7 +111,7 @@ public final class Main extends Shape {
 
         boolean isItOkayToDrinkBeer = switch (day) {
             case SATURDAY, SUNDAY -> true;
-            case FRIDAY, MONDAY, TUESDAY,WEDNESDAY, THURSDAY -> false;
+            case FRIDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY -> false;
             default -> {
                 String dayString = day.toString();
                 int result = dayString.length();
@@ -125,26 +126,27 @@ public final class Main extends Shape {
                 "</html>\n";
 
         String htmlWithJava13 = """
-              <html>
-                  <body>
-                      <p>Hello, world</p>
-                  </body>
-              </html>
-              """;
+                <html>
+                    <body>
+                        <p>Hello, world</p>
+                    </body>
+                </html>
+                """;
+        System.out.println(htmlWithJava13);
 
         //--------------------Java 14------------------------
-        Triangle triangle = new Triangle(3,4,5);
-        System.out.println(" \nTriangle:" + triangle.a());
+        Triangle triangle = new Triangle(3, 4, 5);
+        System.out.println(" \nTriangle:" + triangle.a() + triangle.b() + triangle.c());
         System.out.println(triangle);
 
         //было
         Object object = new Violin();
-        if(object instanceof Violin){
+        if (object instanceof Violin) {
             System.out.println(((Violin) object).getMaster());
         }
 
         //стало
-        if(object instanceof Violin instrument) {
+        if (object instanceof Violin instrument) {
             System.out.println(instrument.getMaster());
         }
 
@@ -160,7 +162,7 @@ public final class Main extends Shape {
 
     public static String test(Object obj) {
 
-        return switch(obj) {
+        return switch (obj) {
 
             case Integer i -> "An integer";
 

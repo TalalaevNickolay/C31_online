@@ -1,4 +1,4 @@
 package main.lesson19;
 
-public record Triangle(int a, int b, int c) {
+public record Triangle(Integer a, Integer b, Integer c) {
 }

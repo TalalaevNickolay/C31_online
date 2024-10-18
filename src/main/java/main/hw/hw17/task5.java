@@ -13,7 +13,5 @@ public class task5 {
         Supplier<StringBuilder> reversedString = () -> string.reverse();
 
         System.out.println(reversedString.get());
-
-
     }
 }

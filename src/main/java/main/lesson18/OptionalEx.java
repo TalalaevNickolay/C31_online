@@ -1,7 +1,5 @@
 package main.lesson18;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,9 +58,9 @@ public class OptionalEx {
 
         //Optional
         String version3 = Optional.ofNullable(computer)
-                .map(computer1 -> computer1.getSoundcard())
-                .map(soundCard -> soundCard.getUsb())
-                .map(usb -> usb.getVersion())
+                .map(Computer::getSoundcard)
+                .map(Soundcard::getUsb)
+                .map(USB::getVersion)
                 .orElse("UNKNOWN");
         System.out.println(version3);
     }

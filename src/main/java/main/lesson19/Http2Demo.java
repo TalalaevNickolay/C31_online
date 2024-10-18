@@ -32,7 +32,7 @@ public class Http2Demo {
 
         HttpResponse<String> response = HttpClient.newBuilder()
                 .build()
-                .send(request1, HttpResponse.BodyHandlers.ofString());
+                .send(request2, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
     }
 }

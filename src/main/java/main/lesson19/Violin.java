@@ -1,6 +1,6 @@
 package main.lesson19;
 
-public final class Violin extends Shape{
+public final class Violin extends Shape {
 
     private String master;
 
